@@ -3,23 +3,24 @@ const router = express.Router();
 const { Reservation } = require('../../models');
 
 router.get('/', async (req, res) => {
-  console.log('Hi!');
   res.json(await Reservation.all());
 });
 
 router.get('/:slot', async (req, res) => {
   let slot = req.params.slot;
 
-  res.json(await Reservation.countSlots(slot));
+  res.json(await Reservation.countAvailableTables(slot));
 });
 
 router.post('/', async (req, res, next) => {
   try {
     let slot = req.body.slot;
-    let reservationCount = await Reservation.countSlots(slot);
+    let reservationCount = await Reservation.countAvailableTables(slot);
     if (reservationCount < 10) {
       let reservation = await Reservation.create(req.body);
-      res.status(201).json(reservation.dataValue);
+      res.status(201).json(reservation);
+    } else {
+      res.status(406).send('No more reservations available at this slot.');
     }
   } catch (error) {
     next(error);

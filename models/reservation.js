@@ -18,10 +18,15 @@ module.exports = (sequelize, DataTypes) => {
         where: { id: id },
       });
     }
-    static async countSlots(slot) {
-      return await this.findAll({
-        where: { slot: slot },
-      });
+    static async countAvailableTables(slot) {
+      let timeslot = new Date(slot);
+      let priorTimeslot = new Date(slot);
+      priorTimeslot.setMinutes(priorTimeslot.getMinutes() - 30);
+      return (
+        await this.findAll({
+          where: { slot: [priorTimeslot, timeslot] },
+        })
+      ).length;
     }
   }
 

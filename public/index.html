@@ -4,12 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>RESERVATIONS</title>
+    <title>Reservations</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p>Hi!</p>
-
     <script src="utils.js"></script>
     <script src="main.js"></script>
+    <form action="/reservations" method="post">
+      <ul>
+        <li>
+          <h1>Reserve Table</h1>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+        </li>
+        <li>
+          <label for="slot">Time and Date</label>
+          <input type="datetime-local" id="slot" name="slot" />
+        </li>
+        <li>
+          <label for="number">Number of Guests:</label>
+          <input type="number" id="number" name="number" />
+        </li>
+        <li class="button">
+          <button type="submit">Request Table</button>
+        </li>
+      </ul>
+    </form>
   </body>
 </html>

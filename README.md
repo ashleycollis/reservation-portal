@@ -1,10 +1,18 @@
 # Simple Node Boilerplate
 
-## Introduction
+## About
 
-This boilerplate contains the following:
+This project is a MVP for a simple reservation portal at a fictional restaurant with 10 tables available in 30 minute intervals between 1 p.m and 10 p.m.
 
-- expresson
-  se the model methods for CRUD operations.
+The app was built using: node, express and sequelize
 
-For an application of this complexity ensuring that database operations through models work well is important. Models are mostly your own code.
+## Running in Deployment
+
+npm install
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+npx nodemon
+
+## Testing
+
+npm test

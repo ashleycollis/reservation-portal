@@ -8,27 +8,63 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css"
+    />
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Reservation Portal</div>
+        <div class="panel-body">
+          <form id="reservationForm">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label">Guest Name</label>
+                <input type="text" class="form-control" name="name" id="name" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label">Table Count</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="guests"
+                  id="guests"
+                />
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label">Reservation Time</label>
+                <div class="input-group date" id="datetimepicker1">
+                  <input type="text" class="form-control" name="slot" id="slot"/>
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit" />
+          </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <script src="utils.js"></script>
     <script src="main.js"></script>
-    <form action="/reservations" method="post">
-      <ul>
-        <li>
-          <h1>Reserve Table</h1>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" />
-        </li>
-        <li>
-          <label for="slot">Time and Date</label>
-          <input type="datetime-local" id="slot" name="slot" />
-        </li>
-        <li>
-          <label for="number">Number of Guests:</label>
-          <input type="number" id="number" name="number" />
-        </li>
-        <li class="button">
-          <button type="submit">Request Table</button>
-        </li>
-      </ul>
-    </form>
   </body>
 </html>

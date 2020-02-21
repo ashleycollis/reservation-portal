@@ -30,7 +30,6 @@ router.post('/', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     let chosenReservation = req.params.id;
-    console.log(chosenReservation);
     await Reservation.destroy({
       where: {
         id: chosenReservation,
